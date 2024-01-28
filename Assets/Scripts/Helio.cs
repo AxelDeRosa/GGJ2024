@@ -9,7 +9,7 @@ public class Helio : MonoBehaviour
     [SerializeField] private float distanciaMaxima,cantFelicidadAgregada = 20; 
                      public TMP_Text TMPcantHelios;
                      public NavScript navMesh;
-    [SerializeField] private GameObject PFsonidoHelio,textoPrecioneE;
+    [SerializeField] private GameObject PFsonidoHelio,PFsonidoAgarrarHelio,textoPrecioneE;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,6 +52,8 @@ public class Helio : MonoBehaviour
 
                 if(Input.GetKeyDown(KeyCode.E))
                 {
+                Instantiate(PFsonidoHelio, this.transform.position, this.transform.rotation);
+
                 cantHelios++;
                 Destroy(hit.collider.gameObject);
                  

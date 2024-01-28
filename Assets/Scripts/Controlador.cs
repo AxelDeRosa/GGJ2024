@@ -9,6 +9,7 @@ public class Controlador : MonoBehaviour
     private  Transform cam;
     [SerializeField] private Vector3 escalaNormal,escalaAgachado;
     [SerializeField] private bool agachado;
+    public NavScript navScript;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,9 @@ public class Controlador : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    { if (navScript.boolperdi == false)
+        {
+
         inputMov.x = Input.GetAxis("Horizontal");
         inputMov.y = Input.GetAxis("Vertical");
         
@@ -31,6 +34,7 @@ public class Controlador : MonoBehaviour
          //agachado = Input.GetKey(KeyCode.C);
          agachado = Input.GetKey(KeyCode.C) || Input.GetKey(KeyCode.LeftControl);
 
+        }
    }
     private void FixedUpdate()
     {

@@ -5,13 +5,18 @@ using UnityEngine.AI;
 public class NavScript : MonoBehaviour
 {
     public Transform objetivo;
+    public GameObject GameOverMenuUI,PFsonidoMonstruoMastc,PFsonidoMonstruoAprox;
+
     private NavMeshAgent agente;
     public float distancia /*distancia es distancia entre el jugador y el objetivo*/,distanciaDeseada;
     private Animator animator;
-
+    public FadeInFadeOut fadeInFadeOut;
     public float estadoNiño = 100,velocidadBajadaDeEstado,velocidad0,velocidad1,velocidad2,velocidad3,velocidad4,velocidadActual;    
+    public bool boolperdi; 
     void Start()
     {
+                GameOverMenuUI.SetActive(false);
+        boolperdi = false;
          agente = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
 
@@ -51,6 +56,10 @@ public class NavScript : MonoBehaviour
                 {
                     estadoNiño = 100;
                 }
+                if(estadoNiño < 1 && boolperdi == false)
+                {
+                    Perder();
+                }
                 BarraUi.Barra = estadoNiño;
 
     }
@@ -87,5 +96,28 @@ public class NavScript : MonoBehaviour
         {
             agente.speed = velocidad4;
         }
+    } 
+    public void Perder()
+    {
+        boolperdi = true;
+        fadeInFadeOut.HacerFade(0,1,3);
+        Instantiate(PFsonidoMonstruoAprox, this.transform.position, this.transform.rotation);
+
+        GameOverMenuUI.SetActive(true);
+
+        StartCoroutine(muerte(9));
+
+    }
+
+
+    private IEnumerator muerte(float delay)
+    {
+
+       
+        yield return new WaitForSeconds(delay);
+        Instantiate(PFsonidoMonstruoMastc, this.transform.position, this.transform.rotation);
+        Time.timeScale = 0f;
+
+
     }
 }

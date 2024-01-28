@@ -54,4 +54,14 @@ public class PausaMenu : MonoBehaviour
         Application.Quit();
 
     }
+    
+    public void ReiniciarEscena()
+    {
+        // Obtenemos el nombre de la escena actual
+        string nombreEscenaActual = SceneManager.GetActiveScene().name;
+
+        // Cargamos la misma escena para reiniciarla
+        SceneManager.LoadScene(nombreEscenaActual);
+    }
+
 }
