@@ -257,6 +257,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PausaMenuUI: {fileID: 3111639033812285131}
+  PFsonidoPausa: {fileID: 918392822979937330, guid: 8bb0d65f55417cd429ca09d8fadaae4f,
+    type: 3}
 --- !u!1 &3111639033812285131
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class PausaMenu : MonoBehaviour
 {      
     public static bool Pausado = false;
     public GameObject PausaMenuUI;
+    [SerializeField] private GameObject PFsonidoPausa;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,10 +27,12 @@ public class PausaMenu : MonoBehaviour
         {
             if (Pausado)
             {
+
                 Volver();
             }
             else
             {
+                Instantiate(PFsonidoPausa, this.transform.position, this.transform.rotation);
                 Pausar();
             }
         } 
@@ -54,7 +57,7 @@ public class PausaMenu : MonoBehaviour
         Application.Quit();
 
     }
-    
+
     public void ReiniciarEscena()
     {
         // Obtenemos el nombre de la escena actual
