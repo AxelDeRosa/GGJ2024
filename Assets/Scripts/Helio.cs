@@ -9,7 +9,7 @@ public class Helio : MonoBehaviour
     [SerializeField] private float distanciaMaxima,cantFelicidadAgregada = 20; 
                      public TMP_Text TMPcantHelios;
                      public NavScript navMesh;
-    [SerializeField] private GameObject PFsonidoHelio,PFsonidoAgarrarHelio,textoPrecioneE;
+    [SerializeField] private GameObject PFsonidoHelio,PFsonidoPuerta,PFsonidoAgarrarHelio,textoPrecioneE,textoPrecioneEinteractuar;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,12 +58,31 @@ public class Helio : MonoBehaviour
                 Destroy(hit.collider.gameObject);
                  
                 }
-                
             }
+
+            if (hit.collider.CompareTag("Puerta"))
+            {
+                textoPrecioneEinteractuar.SetActive(true);
+
+                if(Input.GetKeyDown(KeyCode.E))
+                {
+                    Instantiate(PFsonidoPuerta, this.transform.position, this.transform.rotation);
+
+                     Puerta puertaScript = hit.collider.GetComponent<Puerta>();
+                     puertaScript.AbrirPuerta(3);
+
+
+                  // hit.collider.gameObjet.Puerta.AbrirPuerta();
+                 
+                }
+            }
+
+
         }
         else
         {
         textoPrecioneE.SetActive(false);
+        textoPrecioneEinteractuar.SetActive(false);
 
         }
     }

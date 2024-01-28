@@ -160,9 +160,12 @@ MonoBehaviour:
   navMesh: {fileID: 0}
   PFsonidoHelio: {fileID: 918392822979937330, guid: 9077f9bbc15601449acda039e516c7d5,
     type: 3}
+  PFsonidoPuerta: {fileID: 918392822979937330, guid: 165924553fde0934aab228ab85f02c0e,
+    type: 3}
   PFsonidoAgarrarHelio: {fileID: 918392822979937330, guid: 28570991f75a96a49be843983ed8890a,
     type: 3}
   textoPrecioneE: {fileID: 0}
+  textoPrecioneEinteractuar: {fileID: 0}
 --- !u!1 &2232201453485973480
 GameObject:
   m_ObjectHideFlags: 0
