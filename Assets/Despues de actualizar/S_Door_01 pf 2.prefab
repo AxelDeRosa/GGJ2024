@@ -49,7 +49,7 @@ GameObject:
   m_TagString: Puerta
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8460725349890808701
 Transform:
@@ -418,7 +418,7 @@ GameObject:
   - component: {fileID: 4439516993782482480}
   - component: {fileID: 5909777202318882620}
   m_Layer: 0
-  m_Name: S_Door_01 axel
+  m_Name: S_Door_01 pf 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

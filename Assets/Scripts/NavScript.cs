@@ -13,12 +13,16 @@ public class NavScript : MonoBehaviour
     public FadeInFadeOut fadeInFadeOut;
     public float estadoNiño = 100,velocidadBajadaDeEstado,velocidad0,velocidad1,velocidad2,velocidad3,velocidad4,velocidadActual;    
     public bool boolperdi; 
+    
     void Start()
     {
-                GameOverMenuUI.SetActive(false);
+         GameOverMenuUI.SetActive(false);
         boolperdi = false;
          agente = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
+    
+        //animator = GetComponent<Animator>();
+        
+         animator = GetComponentInChildren<Animator>();
 
     }
 

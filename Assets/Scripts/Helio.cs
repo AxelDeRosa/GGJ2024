@@ -69,7 +69,7 @@ public class Helio : MonoBehaviour
                     Instantiate(PFsonidoPuerta, this.transform.position, this.transform.rotation);
 
                      Puerta puertaScript = hit.collider.GetComponent<Puerta>();
-                     puertaScript.AbrirPuerta(3);
+                     puertaScript.AbrirPuerta(2);
 
 
                   // hit.collider.gameObjet.Puerta.AbrirPuerta();

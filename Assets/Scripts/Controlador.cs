@@ -17,7 +17,7 @@ public class Controlador : MonoBehaviour
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Transform>();
         rotacionCamX = cam.eulerAngles.x;
         escalaNormal = transform.localScale;
-        escalaAgachado = new Vector3(1, 0.75f, 0);
+        escalaAgachado = new Vector3(1, 0.4f, 0);
     }
 
     // Update is called once per frame
