@@ -27,11 +27,12 @@ public class PausaMenu : MonoBehaviour
         {
             if (Pausado)
             {
-
+                Cursor.visible = true;
                 Volver();
             }
             else
-            {
+            {   
+                Cursor.visible = false;
                 Instantiate(PFsonidoPausa, this.transform.position, this.transform.rotation);
                 Pausar();
             }

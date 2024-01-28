@@ -18,6 +18,8 @@ public class FadeInFadeOut : MonoBehaviour
     {
         StartCoroutine(FadeIn(alphaInicial, alphaFinal, duracion));
     }
+
+    
     IEnumerator FadeIn(float alphaInicio, float alphaFin, float duracion)
     {
         float tiempoTranscurrido = 0f;
