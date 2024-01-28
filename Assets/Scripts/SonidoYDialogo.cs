@@ -33,7 +33,7 @@ public class SonidoYDialogo : MonoBehaviour
             fade.HacerFade(0,1,3);
 
         if (isTutorial)
-            barraMarco.velocidadBajadaDeEstado = 2;
+            barraMarco.velocidadBajadaDeEstado = 3;
 
 
         if (!usado)
