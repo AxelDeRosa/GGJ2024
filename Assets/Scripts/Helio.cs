@@ -114,8 +114,9 @@ public class Helio : MonoBehaviour
         navMesh.AumentarFelicidad(cantFelicidadAgregada);
 
       //  Instantiate(PFsonidoHelio, this.transform.position, this.transform.rotation);
-        gameObjetSonidos.SetActive(true);
+        
         gameObjetSonidos.SetActive(false);
+        gameObjetSonidos.SetActive(true);
 
     }
 
