@@ -9,7 +9,7 @@ public class Helio : MonoBehaviour
     [SerializeField] private float distanciaMaxima,cantFelicidadAgregada = 20; 
                      public TMP_Text TMPcantHelios;
                      public NavScript navMesh;
-    [SerializeField] private GameObject gameObjetSonidos,PFsonidoAgarrarHelio,textoPrecioneE,textoPrecioneEinteractuar;
+    [SerializeField] private GameObject PFsonidoPuerta,PFsonidoHelio,gameObjetSonidos,PFsonidoAgarrarHelio,textoPrecioneE,textoPrecioneEinteractuar;
     // Start is called before the first frame update
 
     public bool tutorial = true;
@@ -58,8 +58,8 @@ public class Helio : MonoBehaviour
                 {
                     if (!tutorial)
                     {
-                        //Instantiate(PFsonidoHelio, this.transform.position, this.transform.rotation);
-                                gameObjetSonidos.SetActive(true);
+                      Instantiate(PFsonidoAgarrarHelio, this.transform.position, this.transform.rotation);
+                        // gameObjetSonidos.SetActive(true);
 
                         cantHelios++;
                     }
@@ -78,8 +78,8 @@ public class Helio : MonoBehaviour
 
                 if(Input.GetKeyDown(KeyCode.E))
                 {
-                    //Instantiate(PFsonidoPuerta, this.transform.position, this.transform.rotation);
-                gameObjetSonidos.SetActive(true);
+                    Instantiate(PFsonidoPuerta, this.transform.position, this.transform.rotation);
+                //gameObjetSonidos.SetActive(true);
 
                      Puerta puertaScript = hit.collider.GetComponent<Puerta>();
                      puertaScript.AbrirPuerta(2);
@@ -113,8 +113,10 @@ public class Helio : MonoBehaviour
         cantHelios --;
         navMesh.AumentarFelicidad(cantFelicidadAgregada);
 
-       // Instantiate(PFsonidoHelio, this.transform.position, this.transform.rotation);
+      //  Instantiate(PFsonidoHelio, this.transform.position, this.transform.rotation);
         gameObjetSonidos.SetActive(true);
+        gameObjetSonidos.SetActive(false);
+
     }
 
       
