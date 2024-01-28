@@ -96,7 +96,7 @@ public class Helio : MonoBehaviour
     public void UsarHelio()
     {
         
-        Debug.Log(" usarhElio");
+       // Debug.Log(" usarhElio");
         cantHelios --;
         Instantiate(PFsonidoHelio, this.transform.position, this.transform.rotation);
         navMesh.AumentarFelicidad(cantFelicidadAgregada);

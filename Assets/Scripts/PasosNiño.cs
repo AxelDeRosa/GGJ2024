@@ -26,7 +26,7 @@ public class PasosNiño : MonoBehaviour
         {
             numPrueba = 0;
         }
-        Debug.Log("Marcos dio un paso , numprubea =" + numPrueba);
+        //Debug.Log("Marcos dio un paso , numprubea =" + numPrueba);
         //audioSource.clip = sonidosDePasos[Random.Range(0, sonidosDePasos.Length)];
         audioSource.clip = sonidosDePasos[numPrueba];
 

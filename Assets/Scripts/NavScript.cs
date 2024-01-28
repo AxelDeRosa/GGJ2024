@@ -72,7 +72,7 @@ public class NavScript : MonoBehaviour
     {
 
         estadoNiño += cantidad;
-        Debug.Log("la felicidad del niño aumentó " + cantidad + " y ahora es de " + estadoNiño);
+       // Debug.Log("la felicidad del niño aumentó " + cantidad + " y ahora es de " + estadoNiño);
     }
     /*)
     public void estadoNiñoFun
