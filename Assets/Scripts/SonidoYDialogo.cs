@@ -10,8 +10,12 @@ public class SonidoYDialogo : MonoBehaviour
     [SerializeField] private TMP_Text TMPdialogo;
                      private bool usado /*,es2D*/;
     [SerializeField] private float segundosDuracion;
-
-
+    public GameObject nextCollider;
+    public GameObject removeObject;
+    public FadeInFadeOut fade;
+    public bool isEnding;
+    public bool isTutorial;
+    public NavScript barraMarco;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +29,14 @@ public class SonidoYDialogo : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(!usado)
+        if (isEnding)
+            fade.HacerFade(0,1,3);
+
+        if (isTutorial)
+            barraMarco.velocidadBajadaDeEstado = 2;
+
+
+        if (!usado)
         {
             if (other.CompareTag("Player"))
             {
@@ -42,7 +53,11 @@ public class SonidoYDialogo : MonoBehaviour
         TMPdialogo.text = texto;
         Invoke("LimpiarDialogo", segundosDuracion);
         usado = true;
+        if (nextCollider != null)
+             nextCollider.SetActive(true);
 
+        if (removeObject != null)
+            removeObject.SetActive(false);
     /*    if (es2D)
         {
             sonido.Play();
@@ -54,9 +69,9 @@ public class SonidoYDialogo : MonoBehaviour
         }
     */
 
-        //otra forma de pensarlo
-
-        sonido.Play();
+            //otra forma de pensarlo
+        if (sonido != null)
+            sonido.Play();
     }
      private void LimpiarDialogo()
     {

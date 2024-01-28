@@ -11,6 +11,10 @@ public class Helio : MonoBehaviour
                      public NavScript navMesh;
     [SerializeField] private GameObject gameObjetSonidos,PFsonidoAgarrarHelio,textoPrecioneE,textoPrecioneEinteractuar;
     // Start is called before the first frame update
+
+    public bool tutorial = true;
+    public GameObject timeline;
+
     void Start()
     {
         
@@ -50,13 +54,19 @@ public class Helio : MonoBehaviour
             {
                 textoPrecioneE.SetActive(true);
 
-                if(Input.GetKeyDown(KeyCode.E))
+                if(Input.GetKeyDown(KeyCode.E) && cantHelios == 0)
                 {
-                Instantiate(PFsonidoHelio, this.transform.position, this.transform.rotation);
-
-                cantHelios++;
-                Destroy(hit.collider.gameObject);
-                 
+                    if (!tutorial)
+                    {
+                        Instantiate(PFsonidoHelio, this.transform.position, this.transform.rotation);
+                        cantHelios++;
+                    }
+                    Destroy(hit.collider.gameObject);
+                    if (tutorial)
+                    {
+                        timeline.SetActive(true);
+                        tutorial = false;
+                    }
                 }
             }
 
