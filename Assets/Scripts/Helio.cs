@@ -58,7 +58,9 @@ public class Helio : MonoBehaviour
                 {
                     if (!tutorial)
                     {
-                        Instantiate(PFsonidoHelio, this.transform.position, this.transform.rotation);
+                        //Instantiate(PFsonidoHelio, this.transform.position, this.transform.rotation);
+                                gameObjetSonidos.SetActive(true);
+
                         cantHelios++;
                     }
                     Destroy(hit.collider.gameObject);
@@ -76,7 +78,8 @@ public class Helio : MonoBehaviour
 
                 if(Input.GetKeyDown(KeyCode.E))
                 {
-                    Instantiate(PFsonidoPuerta, this.transform.position, this.transform.rotation);
+                    //Instantiate(PFsonidoPuerta, this.transform.position, this.transform.rotation);
+                gameObjetSonidos.SetActive(true);
 
                      Puerta puertaScript = hit.collider.GetComponent<Puerta>();
                      puertaScript.AbrirPuerta(2);
