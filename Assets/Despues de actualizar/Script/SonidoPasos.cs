@@ -6,6 +6,7 @@ public class SonidoPasos : MonoBehaviour
     public AudioClip[] sonidosDePasos;
     public AudioSource audioSource;
     public float intervaloDePasos = 1.0f;
+    private int indice;
 
     private bool reproduciendoPasos = false;
 
@@ -20,8 +21,15 @@ public class SonidoPasos : MonoBehaviour
         {
             if (!reproduciendoPasos)
             {
+                indice ++;
+               if(indice > sonidosDePasos.Length -1)
+                {
+                    indice = 0;
+                }
                 // Reproduce un sonido de paso aleatorio
-                audioSource.clip = sonidosDePasos[Random.Range(0, sonidosDePasos.Length)];
+                //audioSource.clip = sonidosDePasos[Random.Range(0, sonidosDePasos.Length)];
+                audioSource.clip = sonidosDePasos[indice];
+
                 audioSource.Play();
                 reproduciendoPasos = true;
                 StartCoroutine(EsperarIntervalo());
@@ -39,3 +47,4 @@ public class SonidoPasos : MonoBehaviour
         reproduciendoPasos = false;
     }
 }
+    
