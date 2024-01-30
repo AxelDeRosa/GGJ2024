@@ -6,20 +6,33 @@ public class FadeInFadeOut : MonoBehaviour
 {
     public Image panelImage;
     [SerializeField] private float alphaInicial,alphaFinal,duracion;
-
+    public bool fadeout;
     void Start()
     {
-
+        
         StartCoroutine(FadeIn(alphaInicial, alphaFinal, duracion));
 
     }
-   
+
+    private void Update()
+    {
+
+        if (fadeout)
+            HacerFade(0, 1, 1);
+    }
+
+
     public void HacerFade(float alphaInicial, float alphaFinal, float duracion)
     {
         StartCoroutine(FadeIn(alphaInicial, alphaFinal, duracion));
+        fadeout = false;
     }
 
-    
+    public void HacerFadeOut(bool fadeOut)
+    {
+        fadeout = fadeOut;
+    }
+
     IEnumerator FadeIn(float alphaInicio, float alphaFin, float duracion)
     {
         float tiempoTranscurrido = 0f;
@@ -39,4 +52,5 @@ public class FadeInFadeOut : MonoBehaviour
         color.a = alphaFin;
         panelImage.color = color;
     }
+
 }

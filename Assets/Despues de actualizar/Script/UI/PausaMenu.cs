@@ -8,37 +8,35 @@ public class PausaMenu : MonoBehaviour
 {      
     public static bool Pausado = false;
     public GameObject PausaMenuUI;
-    [SerializeField] private GameObject PFsonidoPausa;
+
+    [SerializeField] GameObject mainMenu;
+    [SerializeField] GameObject optionMenu;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        Cursor.visible = false;
     }
     private void Awake()
     {
         Time.timeScale = 1f;
     }
-
     // Update is called once per frame
     void Update()
     {
-        
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (Pausado)
+            if (!Pausado)
+            {
+                Cursor.visible = false;
+                Pausar();
+            }
+            else if (Pausado)
             {
                 Cursor.visible = true;
                 Volver();
             }
-            else
-            {   
-                Cursor.visible = false;
-                Instantiate(PFsonidoPausa, this.transform.position, this.transform.rotation);
-                Pausar();
-            }
         } 
-        
-        
     }
     public void Volver()
     {
@@ -48,6 +46,8 @@ public class PausaMenu : MonoBehaviour
     }
     public void Pausar()
     {
+        mainMenu.SetActive(true);
+        optionMenu.SetActive(false);
         PausaMenuUI.SetActive(true);
         Time.timeScale = 0f;
         Pausado = true;
@@ -56,7 +56,6 @@ public class PausaMenu : MonoBehaviour
     {
         Debug.Log("Saliendo del juego...");
         Application.Quit();
-
     }
 
     public void ReiniciarEscena()

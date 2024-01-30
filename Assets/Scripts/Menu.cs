@@ -7,23 +7,18 @@ public class Menu : MonoBehaviour
 {      
         [SerializeField] private AudioSource sonido/*,otroAudioSource*/;
 
+    public FadeInFadeOut fade;
     
     // Start is called before the first frame update
     void Start()
     {
 
     }
- 
-    // Update is called once per frame
-
-        
-
    
      public void Salir()
     {
         Debug.Log("Saliendo del juego...");
         Application.Quit();
-
     }
 
     public void CargarJuego()
@@ -31,6 +26,7 @@ public class Menu : MonoBehaviour
         // Obtenemos el nombre de la escena actual
 
         // Cargamos la misma escena para reiniciarla
+        if (sonido != null)
         sonido.Play();
              StartCoroutine(esperarYcargar(2,"Environment"));
 
@@ -38,24 +34,28 @@ public class Menu : MonoBehaviour
     }
     public void Tutorial()
     {
-     sonido.Play();
-
+        if (sonido != null)
+            sonido.Play();
     // SceneManager.LoadScene("Tutorial");
              StartCoroutine(esperarYcargar(2,"Tutorial"));
-
-
     }
 
+    public void loadScene(string levelToLoad)
+    {
+        if (sonido != null)
+            sonido.Play();
+        fade.HacerFade(0, 1, 1);
+        Time.timeScale = 1f;
+        StartCoroutine(esperarYcargar(1, levelToLoad));
+        Cursor.visible = true;
+    }
 
      private IEnumerator esperarYcargar(float delay, string nombreEscena)
     {
-
-       
         yield return new WaitForSeconds(delay);
-        
-     SceneManager.LoadScene(nombreEscena);
-
-
+        SceneManager.LoadScene(nombreEscena);
     }
+
+
 }
 

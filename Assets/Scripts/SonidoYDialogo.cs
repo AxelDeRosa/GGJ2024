@@ -48,7 +48,6 @@ public class SonidoYDialogo : MonoBehaviour
 
     private void evento()
     {
-
         TMPdialogo =  GameObject.FindGameObjectWithTag("dialogo").GetComponent<TMP_Text>();
         TMPdialogo.text = texto;
         Invoke("LimpiarDialogo", segundosDuracion);
@@ -58,17 +57,7 @@ public class SonidoYDialogo : MonoBehaviour
 
         if (removeObject != null)
             removeObject.SetActive(false);
-    /*    if (es2D)
-        {
-            sonido.Play();
-        }
-        else
-        {
-             otroAudioSource.clip = sonido.clip;
-             otroAudioSource.Play();
-        }
-    */
-
+   
             //otra forma de pensarlo
         if (sonido != null)
             sonido.Play();
