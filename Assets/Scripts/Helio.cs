@@ -9,11 +9,14 @@ public class Helio : MonoBehaviour
     [SerializeField] private float distanciaMaxima,cantFelicidadAgregada = 20; 
                      public TMP_Text TMPcantHelios;
                      public NavScript navMesh;
-    [SerializeField] private GameObject PFsonidoPuerta,PFsonidoHelio,gameObjetSonidos,PFsonidoAgarrarHelio,textoPrecioneE,textoPrecioneEinteractuar;
+    [SerializeField] private GameObject PFsonidoPuerta,PFsonidoHelio,PFsonidoAgarrarHelio,textoPrecioneE,textoPrecioneEinteractuar;
     // Start is called before the first frame update
 
     public bool tutorial = true;
     public GameObject timeline;
+
+    [SerializeField] GameObject[] dialogosElio;
+    int dialogoActivo;
 
     void Start()
     {
@@ -113,10 +116,13 @@ public class Helio : MonoBehaviour
         cantHelios --;
         navMesh.AumentarFelicidad(cantFelicidadAgregada);
 
-      //  Instantiate(PFsonidoHelio, this.transform.position, this.transform.rotation);
-        
-        gameObjetSonidos.SetActive(false);
-        gameObjetSonidos.SetActive(true);
+        //  Instantiate(PFsonidoHelio, this.transform.position, this.transform.rotation);
+
+        dialogosElio[dialogoActivo].SetActive(false);
+        dialogosElio[dialogoActivo].SetActive(true);
+        dialogoActivo++;
+        if (dialogoActivo > dialogosElio.Length - 1)
+            dialogoActivo = 0;
 
     }
 
