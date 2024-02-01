@@ -9,11 +9,13 @@ public class Helio : MonoBehaviour
     [SerializeField] private float distanciaMaxima,cantFelicidadAgregada = 20; 
                      public TMP_Text TMPcantHelios;
                      public NavScript navMesh;
-    [SerializeField] private GameObject PFsonidoPuerta,PFsonidoHelio,PFsonidoAgarrarHelio,textoPrecioneE,textoPrecioneEinteractuar;
+    [SerializeField] private GameObject PFsonidoHelio,PFsonidoAgarrarHelio,textoPrecioneE,textoPrecioneEinteractuar;
     // Start is called before the first frame update
 
     public bool tutorial = true;
     public GameObject timeline;
+
+    public Animator Marco;
 
     [SerializeField] GameObject[] dialogosElio;
     int dialogoActivo;
@@ -62,7 +64,6 @@ public class Helio : MonoBehaviour
                     if (!tutorial)
                     {
                       Instantiate(PFsonidoAgarrarHelio, this.transform.position, this.transform.rotation);
-                        // gameObjetSonidos.SetActive(true);
 
                         cantHelios++;
                     }
@@ -81,19 +82,10 @@ public class Helio : MonoBehaviour
 
                 if(Input.GetKeyDown(KeyCode.E))
                 {
-                    Instantiate(PFsonidoPuerta, this.transform.position, this.transform.rotation);
-                //gameObjetSonidos.SetActive(true);
-
                      Puerta puertaScript = hit.collider.GetComponent<Puerta>();
                      puertaScript.AbrirPuerta(2);
-
-
-                  // hit.collider.gameObjet.Puerta.AbrirPuerta();
-                 
                 }
             }
-
-
         }
         else
         {
@@ -111,20 +103,25 @@ public class Helio : MonoBehaviour
 
     public void UsarHelio()
     {
-        
-       // Debug.Log(" usarhElio");
         cantHelios --;
-        navMesh.AumentarFelicidad(cantFelicidadAgregada);
-
-        //  Instantiate(PFsonidoHelio, this.transform.position, this.transform.rotation);
-
+        StartCoroutine(delayElioEffect());
+       
         dialogosElio[dialogoActivo].SetActive(false);
         dialogosElio[dialogoActivo].SetActive(true);
         dialogoActivo++;
+
         if (dialogoActivo > dialogosElio.Length - 1)
             dialogoActivo = 0;
+    }
+
+    IEnumerator delayElioEffect()
+    {
+        yield return new WaitForSeconds(2);
+        navMesh.AumentarFelicidad(cantFelicidadAgregada);
+        Marco.SetTrigger("Risa");
 
     }
 
-      
+
+
 }

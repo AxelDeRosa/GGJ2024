@@ -39,7 +39,7 @@ public class SonidoPasos : MonoBehaviour
 
     IEnumerator EsperarIntervalo()
     {
-        Debug.Log(indice);
+      
         // Espera el intervalo antes de detener la reproducción
         yield return new WaitForSeconds(intervaloDePasos);
 

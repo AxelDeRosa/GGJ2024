@@ -15,7 +15,7 @@ public class SonidoYDialogo : MonoBehaviour
     public FadeInFadeOut fade;
     public bool isEnding;
     public bool isTutorial;
-    public float bajadaDeEstado = 3;
+    public float bajadaDeEstado = 2.5f;
     public NavScript barraMarco;
     // Start is called before the first frame update
     void Start()

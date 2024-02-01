@@ -5,11 +5,13 @@ using UnityEngine;
 public class Puerta : MonoBehaviour
 {
     public Transform posicionCerrada,PosicionAbieta;
+    AudioSource audio;
+    public bool isOpen;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -30,8 +32,12 @@ public class Puerta : MonoBehaviour
        public void AbrirPuerta(float duration)
     {
         Debug.Log("llamaste a abrir puerta");
-              StartCoroutine(LerpPosition(posicionCerrada.position,PosicionAbieta.position,duration));
-
+       if (!isOpen)
+       {
+            audio.Play();
+            isOpen = true;
+            StartCoroutine(LerpPosition(posicionCerrada.position,PosicionAbieta.position,duration));
+       }
     }
     IEnumerator LerpPosition(Vector3 startPosition, Vector3 targetPosition, float lerpDuration)
     {

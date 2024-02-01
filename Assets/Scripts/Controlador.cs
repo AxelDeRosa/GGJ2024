@@ -60,7 +60,7 @@ public class Controlador : MonoBehaviour
         rotacionCamX = Mathf.Clamp(rotacionCamX,-50,50);
         cam.localRotation = Quaternion.Euler(rotacionCamX,0,0);
 
-        Agacharse();
+       // Agacharse();
     }
     private void Agacharse()
     {
